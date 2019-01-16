@@ -1,4 +1,5 @@
 ﻿using System;
+using TestDrive.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,13 +8,25 @@ namespace TestDrive
 {
     public partial class App : Application
     {
+        #region Constructor
         public App()
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-        }
+            InitializeIocApp();
 
+            MainPage = new MainPage();
+        } 
+        #endregion
+
+        #region Methods Privates
+        private void InitializeIocApp()
+        {
+            ModuleInitialize.Inicialize();
+        } 
+        #endregion
+
+        #region Cicly of Life App
         protected override void OnStart()
         {
             // Handle when your app starts
@@ -27,6 +40,7 @@ namespace TestDrive
         protected override void OnResume()
         {
             // Handle when your app resumes
-        }
+        } 
+        #endregion
     }
 }
